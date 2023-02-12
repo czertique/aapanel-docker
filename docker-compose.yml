@@ -1,0 +1,19 @@
+version: "3.5"
+
+services:
+  aapanel:
+    image: ${IMAGE_TAG}
+    container_name: "aapanel"
+    ports:
+      - "7800:7800"
+      - "888:888"
+      - "80:80"
+      - "443:443"
+      - "20:20"
+      - "21:21"
+    volumes:
+      - ${PERSISTENCE_ROOT}/server:/www/server
+      - ${PERSISTENCE_ROOT}/backup:/www/backup
+      - ${PERSISTENCE_ROOT}/wwwroot:/www/wwwroot
+      - ${PERSISTENCE_ROOT}/logs:/www/wwwlogs
+      - ${PERSISTENCE_ROOT}/etc:/etc
